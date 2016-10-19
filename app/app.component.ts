@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {Hero} from './hero';
 
 @Component({
 	selector: 'my-app',
@@ -10,15 +11,7 @@ import {Component} from '@angular/core';
 			<span class="badge">{{hero.id}}</span>{{hero.name}}
 		</li>
 	</ul>
-	<div *ngIf="selectedHero">
-		<h2> Hero Details </h2>
-		<div>
-			<label> id: </label>{{selectedHero.id}}
-		</div>
-		<div>
-			<input [(ngModel)] = "selectedHero.name" placeholder= "name"/>
-		</div>
-	</div>
+	<my-hero-detail [hero]="selectedHero"></my-hero-detail>
 	`,
 	styles: [`
   .selected {
@@ -81,20 +74,14 @@ export class AppComponent {
 }
 
 const HEROES: Hero[] = [
-		{id: 1, name: "김영웅"},
-		{id: 2, name: "박크립"},
-		{id: 3, name: "김타워"},
-		{id: 4, name: "최보스"},
-		{id: 5, name: "김빌런"},
-		{id: 6, name: "박휴먼"},
-		{id: 7, name: "이나엘"},
-		{id: 8, name: "홍오크"},
-		{id: 9, name: "박드레나이"},
-		{id: 10, name: "김다엘"}
+		{id: 1, name: "김영웅", hp:30},
+		{id: 2, name: "박크립", hp:400},
+		{id: 3, name: "김타워", hp:320},
+		{id: 4, name: "최보스", hp:3},
+		{id: 5, name: "김빌런", hp:2930},
+		{id: 6, name: "박휴먼", hp:200},
+		{id: 7, name: "이나엘", hp:1},
+		{id: 8, name: "홍오크", hp:65535},
+		{id: 9, name: "박드레나이", hp:255},
+		{id: 10, name: "김다엘", hp:300}
 	];
-
-	
-export class Hero {
-	id: number;
-	name: string;
-}
