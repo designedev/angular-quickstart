@@ -11,23 +11,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
-        //additional code from TUTORIAL2. The Hero Editor.
-        this.title = "Tour of Heroes";
-        this.hero = {
-            id: 1,
-            name: "Geralt Of Rivia"
-        };
+        this.heroes = HEROES;
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n\t<h1>{{title}}</h1>\n\t<h2>{{hero.name}} Details below..</h2>\n\t<div>\n\t\t<label>id : </label>\n\t\t<input value=\"{{hero.name}}\" placeholder=\"name\">\n\t\t<input [(ngModel)]=\"hero.name\" placeholder=\"name\">\n\t</div>\n\t<div><label>name : </label>{{hero.name}}</div>\n\t"
+            template: "\n\t<h2> My Heroes </h2>\n\t<ul class=\"heroes\">\n\t\t<li *ngFor=\"let hero of heroes\">\n\t\t\t<!-- heroes will place here.. -->\n\t\t\t<span class=\"badge\">{{hero.id}}</span>{{hero.name}}\n\t\t</li>\n\t</ul>\n\t",
+            styles: ["\n  .selected {\n    background-color: #CFD8DC !important;\n    color: white;\n  }\n  .heroes {\n    margin: 0 0 2em 0;\n    list-style-type: none;\n    padding: 0;\n    width: 15em;\n  }\n  .heroes li {\n    cursor: pointer;\n    position: relative;\n    left: 0;\n    background-color: #EEE;\n    margin: .5em;\n    padding: .3em 0;\n    height: 1.6em;\n    border-radius: 4px;\n  }\n  .heroes li.selected:hover {\n    background-color: #BBD8DC !important;\n    color: white;\n  }\n  .heroes li:hover {\n    color: #607D8B;\n    background-color: #DDD;\n    left: .1em;\n  }\n  .heroes .text {\n    position: relative;\n    top: -3px;\n  }\n  .heroes .badge {\n    display: inline-block;\n    font-size: small;\n    color: white;\n    padding: 0.8em 0.7em 0 0.7em;\n    background-color: #607D8B;\n    line-height: 1em;\n    position: relative;\n    left: -1px;\n    top: -4px;\n    height: 1.8em;\n    margin-right: .8em;\n    border-radius: 4px 0 0 4px;\n  }\n"]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
+var HEROES = [
+    { id: 1, name: "김영웅" },
+    { id: 2, name: "박크립" },
+    { id: 3, name: "김타워" },
+    { id: 4, name: "최보스" },
+    { id: 5, name: "김빌런" },
+    { id: 6, name: "박휴먼" },
+    { id: 7, name: "이나엘" },
+    { id: 8, name: "홍오크" },
+    { id: 9, name: "박드레나이" },
+    { id: 10, name: "김다엘" }
+];
 var Hero = (function () {
     function Hero() {
     }
