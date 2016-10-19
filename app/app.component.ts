@@ -5,11 +5,20 @@ import {Component} from '@angular/core';
 	template: `
 	<h2> My Heroes </h2>
 	<ul class="heroes">
-		<li *ngFor="let hero of heroes">
+		<li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
 			<!-- heroes will place here.. -->
 			<span class="badge">{{hero.id}}</span>{{hero.name}}
 		</li>
 	</ul>
+	<div *ngIf="selectedHero">
+		<h2> Hero Details </h2>
+		<div>
+			<label> id: </label>{{selectedHero.id}}
+		</div>
+		<div>
+			<input [(ngModel)] = "selectedHero.name" placeholder= "name"/>
+		</div>
+	</div>
 	`,
 	styles: [`
   .selected {
@@ -64,6 +73,11 @@ import {Component} from '@angular/core';
 
 export class AppComponent {
 	heroes = HEROES;
+	selectedHero: Hero;
+
+	onSelect(hero: Hero): void {
+		this.selectedHero = hero;
+	}
 }
 
 const HEROES: Hero[] = [
