@@ -23,7 +23,7 @@ var HeroesComponent = (function () {
     HeroesComponent.prototype.getHeroes = function () {
         var _this = this;
         //this.heroes = this.heroservice.getHeroes();
-        this.heroservice.getHeroesSlowly().then(function (heroes) { return _this.heroes = heroes; }); // ES2015 ArrowFunction.
+        this.heroservice.getHeroes().then(function (heroes) { return _this.heroes = heroes; }); // ES2015 ArrowFunction.
     };
     HeroesComponent.prototype.ngOnInit = function () {
         this.getHeroes();
@@ -33,9 +33,10 @@ var HeroesComponent = (function () {
     };
     HeroesComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'my-heroes',
-            templateUrl: './templates/heroes.component.html',
-            styleUrls: ['./templates/heroes.component.css'],
+            templateUrl: 'heroes.component.html',
+            styleUrls: ['heroes.component.css'],
             providers: [hero_service_1.HeroService]
         }), 
         __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService])

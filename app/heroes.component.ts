@@ -4,9 +4,10 @@ import {Router} from '@angular/router';
 import {HeroService} from './hero.service';
 
 @Component({
+	moduleId: module.id,
 	selector: 'my-heroes',
-	templateUrl: './templates/heroes.component.html',
-  styleUrls: ['./templates/heroes.component.css']
+	templateUrl: 'heroes.component.html',
+  styleUrls: ['heroes.component.css']
   ,
 providers: [HeroService]
 })
@@ -22,12 +23,12 @@ export class HeroesComponent implements OnInit{
 	}
 	getHeroes(): void {
 		//this.heroes = this.heroservice.getHeroes();
-		this.heroservice.getHeroesSlowly().then(heroes => this.heroes = heroes);	// ES2015 ArrowFunction.
+		this.heroservice.getHeroes().then(heroes => this.heroes = heroes);	// ES2015 ArrowFunction.
 	}
 	ngOnInit(): void {
 		this.getHeroes();
 	}
-  gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedHero.id]);
-  }
+  	gotoDetail(): void {
+    	this.router.navigate(['/detail', this.selectedHero.id]);
+  	}
 }
