@@ -16,6 +16,7 @@ var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var dashboard_component_1 = require('./dashboard.component');
 var heroes_component_1 = require('./heroes.component');
+var heroes2_component_1 = require("./heroes2.component");
 var hero_detail_component_1 = require('./hero-detail.component');
 var hero_search_component_1 = require('./hero-search.component');
 var hero_service_1 = require('./hero.service');
@@ -25,6 +26,8 @@ var in_memory_web_api_module_1 = require('angular-in-memory-web-api/in-memory-we
 var in_memory_data_service_1 = require('./in-memory-data.service');
 //import rxjs extensions..
 require('./rxjs-extensions');
+var hero_click_component_1 = require("./hero-click.component");
+var add_hero_component_1 = require("./add-hero.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -40,9 +43,12 @@ var AppModule = (function () {
             declarations: [
                 app_component_1.AppComponent,
                 heroes_component_1.HeroesComponent,
+                heroes2_component_1.Heroes2Component,
                 dashboard_component_1.DashboardComponent,
                 hero_detail_component_1.HeroDetailComponent,
-                hero_search_component_1.HeroSearchComponent
+                hero_search_component_1.HeroSearchComponent,
+                hero_click_component_1.HeroClickComponent,
+                add_hero_component_1.AddHeroComponent
             ],
             providers: [
                 hero_service_1.HeroService

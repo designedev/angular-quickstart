@@ -9,6 +9,7 @@ import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 import {DashboardComponent} from './dashboard.component';
 import {HeroesComponent} from './heroes.component';
+import {Heroes2Component} from "./heroes2.component";
 import {HeroDetailComponent} from './hero-detail.component';
 import {HeroSearchComponent} from './hero-search.component';
 import {HeroService} from './hero.service';
@@ -21,6 +22,8 @@ import {InMemoryDataService} from './in-memory-data.service'
 
 //import rxjs extensions..
 import './rxjs-extensions';
+import {HeroClickComponent} from "./hero-click.component";
+import {AddHeroComponent} from "./add-hero.component";
 
 @NgModule({
 	imports:	[
@@ -33,9 +36,12 @@ import './rxjs-extensions';
 	declarations: [
 		AppComponent,
 		HeroesComponent,
+		Heroes2Component,
 		DashboardComponent,
 		HeroDetailComponent,
-		HeroSearchComponent
+		HeroSearchComponent,
+		HeroClickComponent,
+		AddHeroComponent
 	],
 	providers: [
 		HeroService

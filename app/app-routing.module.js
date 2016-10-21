@@ -13,11 +13,15 @@ var router_1 = require('@angular/router');
 var dashboard_component_1 = require('./dashboard.component');
 var heroes_component_1 = require('./heroes.component');
 var hero_detail_component_1 = require('./hero-detail.component');
+var heroes2_component_1 = require("./heroes2.component");
+var add_hero_component_1 = require("./add-hero.component");
 var routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     { path: 'heroes', component: heroes_component_1.HeroesComponent },
     { path: 'dashboard', component: dashboard_component_1.DashboardComponent },
-    { path: 'detail/:id', component: hero_detail_component_1.HeroDetailComponent }
+    { path: 'detail/:id', component: hero_detail_component_1.HeroDetailComponent },
+    { path: 'heroes2', component: heroes2_component_1.Heroes2Component },
+    { path: 'create', component: add_hero_component_1.AddHeroComponent }
 ];
 var AppRouteModule = (function () {
     function AppRouteModule() {
