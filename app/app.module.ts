@@ -9,6 +9,7 @@ import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 import {DashboardComponent} from './dashboard.component';
 import {HeroesComponent} from './heroes.component';
+import {HeroFormComponent} from './hero-form.component';
 import {HeroDetailComponent} from './hero-detail.component';
 import {HeroSearchComponent} from './hero-search.component';
 import {HeroService} from './hero.service';
@@ -34,6 +35,7 @@ import './rxjs-extensions';
 		AppComponent,
 		HeroesComponent,
 		DashboardComponent,
+		HeroFormComponent,
 		HeroDetailComponent,
 		HeroSearchComponent
 	],
