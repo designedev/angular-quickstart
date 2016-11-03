@@ -1,18 +1,11 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {RouterModule} from '@angular/router';
-import {FormsModule} from '@angular/forms';
 
 //import for http request..
 import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
-import {DashboardComponent} from './dashboard.component';
-import {HeroesComponent} from './heroes.component';
-import {HeroFormComponent} from './hero-form.component';
-import {HeroDetailComponent} from './hero-detail.component';
-import {HeroSearchComponent} from './hero-search.component';
-import {HeroService} from './hero.service';
+import {HeroService} from './hero/service/hero.service';
 
 import {AppRouteModule} from './app-routing.module';
 
@@ -23,21 +16,32 @@ import {InMemoryDataService} from './in-memory-data.service'
 //import rxjs extensions..
 import './rxjs-extensions';
 
+// feature modules..
+import {DashboardModule} from "./dashboard/dashboard.module";
+import {HeroesModule} from "./hero/heroes/heroes.module";
+import {HeroDetailModule} from "./hero/herodetail/hero-detail.module";
+import {HeroFormModule} from "./hero/heroform/hero-form.module";
+import {ModalModule} from "angular2-modal";
+import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
+
+
 @NgModule({
 	imports:	[
-		BrowserModule, 
-		FormsModule,
+		BrowserModule,
+		// feature modules..
+        DashboardModule,
+		HeroesModule,
+		HeroDetailModule,
+		HeroFormModule,
+		///
 		HttpModule,
 		InMemoryWebApiModule.forRoot(InMemoryDataService),
-		AppRouteModule
+		AppRouteModule,
+		ModalModule.forRoot(),
+		BootstrapModalModule
 	],
 	declarations: [
-		AppComponent,
-		HeroesComponent,
-		DashboardComponent,
-		HeroFormComponent,
-		HeroDetailComponent,
-		HeroSearchComponent
+		AppComponent
 	],
 	providers: [
 		HeroService

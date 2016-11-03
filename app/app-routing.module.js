@@ -10,10 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var dashboard_component_1 = require('./dashboard.component');
-var heroes_component_1 = require('./heroes.component');
-var hero_form_component_1 = require('./hero-form.component');
-var hero_detail_component_1 = require('./hero-detail.component');
+var dashboard_component_1 = require('./dashboard/dashboard.component');
+var heroes_component_1 = require('./hero/heroes/heroes.component');
+var hero_form_component_1 = require('./hero/heroform/hero-form.component');
+var hero_detail_component_1 = require('./hero/herodetail/hero-detail.component');
 var routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     { path: 'heroes', component: heroes_component_1.HeroesComponent },

@@ -10,15 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var hero_service_1 = require('../hero.service');
+var hero_service_1 = require("../service/hero.service");
+var angular2_toaster_1 = require('angular2-toaster/angular2-toaster');
 var HeroesComponent = (function () {
     //heroService = new HeroService(); -- bad idea. use constructor 
-    function HeroesComponent(router, heroservice) {
+    function HeroesComponent(router, heroservice, toasterservice, route) {
         this.router = router;
         this.heroservice = heroservice;
+        this.toasterservice = toasterservice;
+        this.route = route;
+        this.toasterconfig = new angular2_toaster_1.ToasterConfig({
+            showCloseButton: true,
+            tapToDismiss: true,
+            limit: 3,
+            timeout: 30000,
+            positionClass: 'toast-bottom-center'
+        });
     }
     HeroesComponent.prototype.onSelect = function (hero) {
         this.selectedHero = hero;
+        this.toasterservice.pop('success', hero.name, hero.name + " selected.");
     };
     HeroesComponent.prototype.getHeroes = function () {
         var _this = this;
@@ -26,7 +37,12 @@ var HeroesComponent = (function () {
         this.heroservice.getHeroes().then(function (heroes) { return _this.heroes = heroes; }); // ES2015 ArrowFunction.
     };
     HeroesComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.getHeroes();
+        this.route.params.forEach(function (params) {
+            var selectedId = +params['selectedId'];
+            _this.selectedId = selectedId;
+        });
     };
     HeroesComponent.prototype.gotoDetail = function () {
         this.router.navigate(['/detail', this.selectedHero.id]);
@@ -44,15 +60,17 @@ var HeroesComponent = (function () {
             }
         });
     };
+    HeroesComponent.prototype.isSelected = function (hero) {
+        return hero.id === this.selectedId;
+    };
     HeroesComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-heroes',
             templateUrl: 'heroes.component.html',
-            styleUrls: ['heroes.component.css'],
-            providers: [hero_service_1.HeroService]
+            styleUrls: ['../../../node_modules/angular2-toaster/lib/toaster.css', 'heroes.component.css']
         }), 
-        __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService])
+        __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService, angular2_toaster_1.ToasterService, router_1.ActivatedRoute])
     ], HeroesComponent);
     return HeroesComponent;
 }());
