@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 
-import {Hero} from './hero';
-import {HeroService} from './hero.service';
+import {Hero} from '../hero';
+import {HeroService} from '../hero.service';
 import {Router} from '@angular/router';
 
 @Component({
 	moduleId: module.id,
 	selector: 'hero-form',
 	templateUrl: 'hero-form.component.html',
-	styleUrls: ['../node_modules/bootstrap/dist/css/bootstrap.min.css', 'hero-form.component.css']
+	styleUrls: ['../../node_modules/bootstrap/dist/css/bootstrap.min.css', 'hero-form.component.css']
 })
 export class HeroFormComponent implements OnInit{
 	constructor(

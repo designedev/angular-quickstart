@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 import {HeroSearchService} from './hero-search.service';
-import {Hero} from './Hero';
+import {Hero} from '../hero';
 
 @Component({
 	moduleId: module.id,
@@ -41,4 +41,6 @@ export class HeroSearchComponent implements OnInit {
   	let link = ['/detail', hero.id];
   	this.router.navigate(link);
   }
+
+  @Input() temp;
 }

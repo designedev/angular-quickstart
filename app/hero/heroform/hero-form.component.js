@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var hero_1 = require('./hero');
-var hero_service_1 = require('./hero.service');
+var hero_1 = require('../hero');
+var hero_service_1 = require('../hero.service');
 var router_1 = require('@angular/router');
 var HeroFormComponent = (function () {
     function HeroFormComponent(heroService, router) {
@@ -43,7 +43,7 @@ var HeroFormComponent = (function () {
             moduleId: module.id,
             selector: 'hero-form',
             templateUrl: 'hero-form.component.html',
-            styleUrls: ['../node_modules/bootstrap/dist/css/bootstrap.min.css', 'hero-form.component.css']
+            styleUrls: ['../../node_modules/bootstrap/dist/css/bootstrap.min.css', 'hero-form.component.css']
         }), 
         __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.Router])
     ], HeroFormComponent);

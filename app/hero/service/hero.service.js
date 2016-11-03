@@ -16,11 +16,15 @@ var HeroService = (function () {
     function HeroService(http) {
         this.http = http;
         this.heroesUrl = 'app/heroes'; // web API`s URL..
+        this.testUrl = 'http://local.kakao.com:2000/api/home';
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
     HeroService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
+    };
+    HeroService.prototype.getHome = function () {
+        return this.http.get(this.testUrl).toPromise().then(function (response) { return response.json().data; }).catch(this.handleError);
     };
     HeroService.prototype.getHeroes = function () {
         //return Promise.resolve(HEROES);

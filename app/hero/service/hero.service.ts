@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-import {Hero} from './hero';
+import {Hero} from './hero/hero';
 //import {HEROES} from './mock-heroes';
 
 import 'rxjs/add/operator/toPromise';
@@ -10,6 +10,7 @@ import {Headers, Http} from '@angular/http';
 export class HeroService {
 
 	private heroesUrl = 'app/heroes';	// web API`s URL..
+	private testUrl = 'http://local.kakao.com:2000/api/home'
 	private headers = new Headers({'Content-Type': 'application/json'});
 
 
@@ -19,6 +20,10 @@ export class HeroService {
 	}
 
 	constructor(private http: Http) { }
+
+	getHome(): Promise<string>{
+		return this.http.get(this.testUrl).toPromise().then(response => response.json().data).catch(this.handleError);
+	}
 
 	getHeroes(): Promise<Hero[]>{
 		//return Promise.resolve(HEROES);

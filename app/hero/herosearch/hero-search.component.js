@@ -41,6 +41,10 @@ var HeroSearchComponent = (function () {
         var link = ['/detail', hero.id];
         this.router.navigate(link);
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], HeroSearchComponent.prototype, "temp", void 0);
     HeroSearchComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
